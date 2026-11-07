@@ -1,0 +1,13 @@
+# Configuration for BoT-SORT Tracker
+# Reference: Aharon et al., "BoT-SORT: Robust Associations Multi-Pedestrian Tracker", arXiv 2022 (MIT License)
+
+tracker:
+  name: "botsort"
+  track_high_thresh: 0.5     # Detection score threshold for high-confidence first association stage
+  track_low_thresh: 0.1      # Detection score threshold for low-confidence second association stage
+  new_track_thresh: 0.6      # Minimum detection score required to initialize a new track
+  track_buffer: 30           # Number of frames to retain lost tracks before removal
+  match_thresh: 0.8          # Maximum IoU distance threshold for first association
+  proximity_thresh: 0.5      # Maximum distance threshold for proximity matching
+  cmc_method: "none"         # Camera Motion Compensation method ("none" for stationary classroom camera)
+

@@ -1,0 +1,13 @@
+# Configuration for OC-SORT (Observation-Centric SORT)
+# Reference: Cao et al., "Observation-Centric SORT", CVPR 2023 (MIT License)
+
+tracker:
+  name: "ocsort"
+  det_thresh: 0.5            # High-confidence detection score threshold
+  max_age: 30                # Maximum frames to keep lost tracks alive
+  min_hits: 3                # Minimum hits to activate / confirm track
+  iou_threshold: 0.3         # Base IoU matching threshold
+  delta_t: 3                 # Time step difference for Observation-Centric Momentum (OCM)
+  inertia: 0.2               # Weight for velocity direction momentum consistency in cost matrix
+  use_byte: true             # Enable ByteTrack-style two-stage association
+

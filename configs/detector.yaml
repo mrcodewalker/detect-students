@@ -1,0 +1,10 @@
+# Configuration for YOLO student detector (person class only)
+
+model:
+  weights: "yolov8n.pt"         # Pretrained weights path (small model for fast edge inference)
+  conf: 0.35                    # Confidence threshold (0.0 to 1.0)
+  iou: 0.45                     # NMS IoU threshold
+  imgsz: 640                    # Input image resolution (square dimension)
+  device: "cpu"                 # Target compute device ("cpu" or "cuda:0")
+  half: false                   # FP16 half-precision inference (requires CUDA)
+  classes: [0]                  # Target class indices (0 is 'person' in COCO)

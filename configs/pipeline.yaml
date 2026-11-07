@@ -1,0 +1,30 @@
+# End-to-end classroom monitoring pipeline configuration
+
+video:
+  source: "data/raw/classroom_real_test.mp4"
+  output_video: "results/pipeline_output.mp4"
+  output_csv: "results/pipeline_actions.csv"
+  output_summary_csv: "results/pipeline_summary.csv"
+
+detector:
+  config: "configs/detector.yaml"
+
+tracker:
+  type: "bytetrack"              # Choices: "bytetrack", "sort", "botsort", "ocsort"
+  config: "configs/tracker_bytetrack.yaml"
+
+pose:
+  enabled: true                  # Enable 17-keypoint 2D pose estimation
+  config: "configs/pose.yaml"
+
+action:
+  config: "configs/action.yaml"
+  backend: "keypoint"            # "keypoint" or "crop"
+
+viz:
+  draw_boxes: true
+  draw_ids: true
+  draw_actions: true
+  draw_poses: true
+  draw_hud: true
+

@@ -1,0 +1,15 @@
+# Configuration for 2D human pose estimation (17 COCO keypoints)
+
+model:
+  weights: "yolov8n-pose.pt"     # Pretrained pose model weights
+  conf: 0.35                     # Detection confidence threshold
+  iou: 0.45                      # NMS IoU threshold
+  kpt_conf: 0.30                 # Keypoint confidence threshold for visualization/filtering
+  imgsz: 640                     # Model input resolution
+  device: "cpu"                  # Compute device: "cpu" or "cuda:0"
+  half: false                    # FP16 half-precision inference
+  mode: "whole_frame"            # Inference mode: "whole_frame" or "crop"
+
+cache:
+  enabled: true                  # Cache keypoints to disk per video
+  dir: "results/cache/pose"      # Directory storing pose cache JSON files

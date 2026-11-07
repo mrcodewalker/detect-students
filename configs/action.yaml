@@ -1,0 +1,63 @@
+# Action recognition configuration
+
+classes:
+  - sitting
+  - standing
+  - raising_hand
+  - using_phone
+
+# Default active backend: "keypoint", "crop", or "pretrained_s3d"
+default_backend: "keypoint"
+
+# Buffer window parameters
+buffer:
+  window_size: 16
+  stride: 4
+  max_missing_frames: 30
+  crop_size: [112, 112]
+
+# Backend A: Keypoint-sequence classifier
+keypoint_model:
+  name: "KeypointTemporalModel"
+  input_features: 51          # 17 keypoints * 3 coordinates (x, y, conf)
+  hidden_dim: 64
+  num_layers: 2
+  dropout: 0.2
+  bidirectional: true
+  device: "cpu"
+  weights: "results/checkpoints/action/keypoint_best.pt"   # Trained PyTorch checkpoint (88.4% Acc)
+
+# Backend B: Crop-based classifier (Pretrained ImageNet MobileNetV3 + Temporal Head)
+crop_model:
+  name: "CropTemporalModel"
+  backbone: "mobilenet_v3_small"
+  pretrained: true
+  hidden_dim: 128
+  num_layers: 1
+  dropout: 0.3
+  device: "cpu"
+  weights: "results/checkpoints/action/crop_best.pt"       # Trained PyTorch checkpoint (88.2% Acc)
+
+# Backend C: Pretrained Video Model (Google S3D 3D-CNN on Kinetics-400)
+pretrained_s3d_model:
+  name: "PretrainedS3DActionClassifier"
+  weights: "DEFAULT"
+  device: "cpu"
+
+# Smoothing configuration (Prompt 13)
+smoothing:
+  method: "ema"               # "majority_vote" or "ema"
+  window_len: 7               # For majority vote
+  alpha: 0.4                  # For EMA smoothing (0.0 to 1.0)
+  hysteresis_threshold: 0.6   # Minimum confidence to switch away from current label
+
+# Training configuration
+training:
+  seed: 42
+  batch_size: 16
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  epochs: 10
+  save_dir: "results/checkpoints/action"
+  log_dir: "results/logs/action"
+

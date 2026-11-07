@@ -1,0 +1,12 @@
+# Configuration for ByteTrack Tracker
+# Reference: Zhang et al., ECCV 2022 (MIT License)
+
+tracker:
+  name: "bytetrack"
+  track_thresh: 0.5         # High detection score threshold for 1st association stage
+  match_thresh: 0.8         # IoU distance threshold (1 - IoU) for 1st association stage
+  low_thresh: 0.1           # Low detection score threshold for 2nd association stage
+  low_match_thresh: 0.5     # IoU distance threshold for 2nd association stage
+  confirm_thresh: 3         # Consecutive detections required to confirm a new track
+  max_lost_frames: 30       # Maximum frames to buffer lost tracklets before removal
+

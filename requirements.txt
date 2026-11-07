@@ -1,0 +1,41 @@
+# Core dependencies with pinned versions and licenses
+
+# NumPy: Array manipulation and numerical operations
+# License: BSD-3-Clause
+numpy==1.26.4
+
+# SciPy: Scientific computing and linear sum assignment for tracking association
+# License: BSD-3-Clause
+scipy==1.17.1
+
+# OpenCV: Video I/O and computer vision primitives
+# License: Apache-2.0
+opencv-python==4.11.0.86
+
+# PyYAML: YAML configuration file parser
+# License: MIT
+PyYAML==6.0.3
+
+# Pytest: Testing framework
+# License: MIT
+pytest==9.2.0
+
+# PyTorch & Torchvision: Deep learning framework
+# License: BSD-3-Clause / Apache-2.0
+torch==2.15.0
+torchvision==0.29.2
+
+# Ultralytics: YOLO object detection and pose estimation
+# License: AGPL-3.0 (GNU Affero General Public License v3.0)
+# Note: For commercial use, an enterprise license from Ultralytics is required.
+# Academic research/open source use is permitted under AGPL-3.0 terms.
+ultralytics==8.4.204
+
+# TrackEval: Official multi-object tracking evaluation toolkit (MOTA, IDF1, HOTA, etc.)
+# License: MIT
+trackeval==1.3.0
+
+# Pycocotools & Tabulate: Dependencies for tracking evaluation and result formatting
+# License: Apache-2.0 (pycocotools) / MIT (tabulate)
+pycocotools==2.0.11
+tabulate==0.10.0
