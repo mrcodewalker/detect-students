@@ -1,0 +1,47 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Model weights & checkpoints
+weights/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.bin
+*.ckpt
+
+# Data directories (raw videos, datasets, annotations)
+# Keep data documentation and folder layout
+data/*
+!data/README.md
+!data/raw/
+!data/processed/
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Results, evaluation outputs & logs
+results/*
+!results/.gitkeep
+runs/
+logs/
+*.log
+
+# IDE & OS specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
